@@ -6,7 +6,7 @@ https://manual.threefold.io/#/mainnet_getting_started?id=get-3bot-connect-app-an
 
 - login to docker locally
 >docker login 
-- run the image
+- run the image straight from dockerhub, alternatively follow the build it yourself instruction. 
 
 >docker run --name threefold-3Bot-local -it tomcraven/threefold-3bot:latest
 
@@ -19,3 +19,17 @@ https://manual.threefold.io/#/mainnet_getting_started?id=get-3bot-connect-app-an
 >threebot start --local
 
 - Follow the onscreen prompts and Your done! find the 3bot at https://localhost:8443
+
+###Build it yourself
+build and run locally
+>docker build
+ --build-arg USER=1000 --build-arg USER_GROUP=1000
+ -t threefold-3bot .
+ && docker run
+ -p 8443:8443
+ --name threefold-3Bot-local
+ threefold-3bot 
+
+exec onto the docker and follow the instruction above
+
+>docker exec -i -t threefold-3Bot-local /bin/bash
